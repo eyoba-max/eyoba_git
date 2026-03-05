@@ -1,0 +1,27 @@
+
+body{
+    background-color: blanchedalmond;
+}
+div{
+    width:800px;
+    height:200px;
+    background:linear-gradient(rgb(12, 99, 99), rgb(106, 106, 161));
+    color:whitesmoke;
+
+    box-shadow:0 3px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+    margin-left:100px ;
+}
+input{
+    display:flex;
+    border-radius:10px;
+    height:35px;
+    width:500px;
+    margin-left:15px;
+    background-color: darkblue;
+    color:whitesmoke; 
+}
+.use:hover{
+    border-color: aqua;
+    border-style: solid;
+
+}
