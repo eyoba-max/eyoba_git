@@ -25,3 +25,6 @@ input{
     border-style: solid;
 
 }
+input:active{
+    width:auto;
+}
