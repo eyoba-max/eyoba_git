@@ -3,7 +3,9 @@ body{
     background-color: blanchedalmond;
 }
 div{
-    width:800px;
+    display:flex;
+    flex-direction: column;
+    width:590px;
     height:200px;
     background:linear-gradient(rgb(12, 99, 99), rgb(106, 106, 161));
     color:whitesmoke;
@@ -12,7 +14,7 @@ div{
     margin-left:100px ;
 }
 input{
-    display:flex;
+    display:inline-block;
     border-radius:10px;
     height:35px;
     width:500px;
@@ -26,5 +28,8 @@ input{
 
 }
 input:active{
-    width:auto;
+    width:400px;
+}
+input:invalid{
+    border-color:red;
 }
