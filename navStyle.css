@@ -16,10 +16,13 @@ h1{
     text-align:center
 }
 .navbar a:hover{
-    background-color: rgba(22, 5, 5, 0.816);
+    background-color: rgba(171, 35, 35, 0.816);
 }
 .navbar li{
    
-    display: inline-flex;
-    grid-template-columns: 180px;
+    float:left;
+}
+.navbar a:active{
+    background-color: rgba(0, 0, 0, 0);
+    color:blue;
 }
