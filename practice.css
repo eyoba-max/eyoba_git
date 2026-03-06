@@ -1,0 +1,37 @@
+body{
+    margin:o;
+}
+.container{
+    display:flex;
+    justify-content:space-between;
+    color:whitesmoke;
+}
+.box{
+    width:150px;
+    height:150px;
+    font-size:8em;
+    text-align:center;
+    border-radius:15px;
+}
+#box1{
+    background-color: blue;
+}
+#box2{
+    background-color: rgb(0, 0, 0);}
+#box3{
+    background-color: brown;
+}
+#box4{
+    background-color: darkcyan;
+}   
+#box5{
+    border:5px;
+    width:250px;
+    height:250px;
+    font-size:13em;
+    text-align:center;
+    background-color: blueviolet;
+
+    transform:translateX(50px);
+} 
+    
