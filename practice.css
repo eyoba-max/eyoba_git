@@ -18,3 +18,9 @@ div{
     background-color: rgb(64, 120, 101);
     font-size: 1em;
 }
+#submitBtn{
+    color:darkblue;
+    background-color: aquamarine;
+    font-size:1.5em;
+    border-radius: 10px;
+}
