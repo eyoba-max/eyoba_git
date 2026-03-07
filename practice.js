@@ -6,7 +6,7 @@ document.getElementById("mySubmit").onclick=function(){
     console.log(userName);
     document.getElementById("h1").textContent=`my name is ${userName}`;
 }
-let count;
+let count=0;
 document.getElementById("decrease").onclick=function(){
     count--;
     document.getElementById("lab").textContent=count;
@@ -22,7 +22,7 @@ document.getElementById("reset").onclick=function(){
 
 const subscribe=document.getElementById("subscribe");
 const visaBtn=document.getElementById("visaBtn");
-const paypalBtn=document.getElementById("vpaypalBtn");
+const paypalBtn=document.getElementById("paypalBtn");
 const mastercardBtn=document.getElementById("mastercardBtn");
 const submitBtn=document.getElementById("submitBtn");
 const su=document.getElementById("sub");

@@ -1,5 +1,9 @@
-div{
-    text-align:center;
+body{
+    margin:0;
+    background-color: rgb(60, 25, 94);
+}
+.ty{
+    text-align: center;
 }
 #lab{
     font-size:10em;
@@ -23,4 +27,26 @@ div{
     background-color: aquamarine;
     font-size:1.5em;
     border-radius: 10px;
+}
+.name{
+    width:300px;
+    height: 19vh;
+    background-color: rgb(68, 9, 123);
+    margin-left: 150px;
+    color:whitesmoke;
+
+    box-shadow: 4px 4px 12px 4px rgb(133, 36, 224);
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+}
+#user, #use{
+    width:80%;
+    height: 27px;
+    border-radius: 8px;
+    margin-left: 8px;
+    background-color: transparent;
+    color: rgb(0, 235, 235);
+}
+input:hover{
+    border-color: aqua;
 }
