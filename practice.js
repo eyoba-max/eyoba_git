@@ -81,4 +81,14 @@ while(running){
     }
     
 }*/
+let toggle = document.getElementById("toggle");
+
+toggle.onclick = function() {
+    if (document.body.style.backgroundColor === "black") {
+        document.body.style.backgroundColor = "white"; // Change back to white
+        document.body.style.colr="black";
+    } else {
+        document.body.style.backgroundColor = "black"; // Change to black
+    }
+};
 
