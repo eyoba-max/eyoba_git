@@ -50,3 +50,28 @@ body{
 input:hover{
     border-color: aqua;
 }
+.oop{
+    background-color: rgb(102, 139, 139);
+    width:200px;
+    height:200px;
+    margin:120px;
+    border-radius:14px;
+}
+.oop:hover{
+    background-color: aqua;
+    width:200px;
+    height:200px;
+    margin:120px;
+    border-radius:14px;
+    animation-name:anime;
+    animation-duration: 7s;
+    animation-timing-function:ease-in-out;
+}
+@keyframes anime{
+    0%{
+    transform:rotate(7435deg);
+    }
+    100%{
+        transform:rotate(-7435deg);
+    }
+}

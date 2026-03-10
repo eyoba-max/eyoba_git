@@ -1,0 +1,30 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+.left-nav li{
+    display:flex;
+    overflow:hidden;
+    float:left;
+   position:static;
+}
+a img{
+    width:40px;
+    height:40px;
+    padding:0;
+    margin:0;
+}
+.except{
+    text-decoration:none;
+    color:black;
+    font-size: 17px;
+    text-align:center;
+    
+   padding:15px;;
+    background-color:white;
+}
+.except:hover{
+    background-color:rgb(39, 135, 39);
+    color:white;
+}
