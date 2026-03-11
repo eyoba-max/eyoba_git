@@ -1,6 +1,6 @@
 body{
     margin:0;
-    background-color: black;
+    background-color: rgb(4, 82, 149);
 }
 .ty{
     text-align: center;
@@ -50,28 +50,15 @@ body{
 input:hover{
     border-color: aqua;
 }
-.oop{
-    background-color: rgb(102, 139, 139);
-    width:200px;
-    height:200px;
-    margin:120px;
-    border-radius:14px;
+
+.box-container{
+    display:grid;
+    grid-auto-columns:200px;
+    grid-auto-rows:200px; 
+    gap:1em;
+    grid-template-areas: "box1 box2 box2 box3"
+    "box1 box4 box5 box5";
 }
-.oop:hover{
-    background-color: aqua;
-    width:200px;
-    height:200px;
-    margin:120px;
-    border-radius:14px;
-    animation-name:anime;
-    animation-duration: 7s;
-    animation-timing-function:ease-in-out;
-}
-@keyframes anime{
-    0%{
-    transform:rotate(7435deg);
-    }
-    100%{
-        transform:rotate(-7435deg);
-    }
+.box{
+    background-color: rgb(239, 0, 0);
 }
