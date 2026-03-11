@@ -3,6 +3,7 @@
     margin:0;
 }
 
+
 .left-nav li{
     display:flex;
     overflow:hidden;
@@ -27,4 +28,36 @@ a img{
 .except:hover{
     background-color:rgb(39, 135, 39);
     color:white;
+}
+/*right top nav styling*/
+.nav-top-right {
+    display: flex;
+    justify-content: flex-end;   /* pushes items to the right */
+    
+}
+
+.right-nav {
+    display: flex;               /* makes items appear in a row */
+    list-style: none;            /* removes bullets */
+    margin: 0;
+    padding: 0;
+}
+
+.right-nav li {
+    padding: 15px;           /* space between items */
+    font-size: 17px;
+}
+.except1:hover:not(:last-child){
+    background-color: rgba(254, 249, 249, 0.926);
+    border-radius:30px;
+    cursor: pointer;
+}
+#in{
+    background-color:rgb(4, 111, 59);
+    padding:8px 12px;
+    border-radius:12px;
+    color:white;
+}
+#in:hover{
+    opacity: 0.8;
 }
