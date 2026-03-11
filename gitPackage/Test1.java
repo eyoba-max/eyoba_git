@@ -4,9 +4,14 @@ public class Test1 {
 	int age;
 	String name;
 	final String ID;
-	Test1(String id, String name, int age){
+	Test1(String id){
 		ID=id;
-		System.out.println("your name is "+name+" you are "+age+" years old");
-		System.out.println("your identification number is "+ID);
+
+	}
+	static void ethio() {
+		Test1 ey=new Test1("UGR/9316/17");
+		ey.age=21;
+		ey.name="moges";
+		System.out.println("your name is "+ey.name);
 	}
 }
