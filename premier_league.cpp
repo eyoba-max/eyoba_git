@@ -57,6 +57,52 @@ int getValidInt(string prompt, int minValue = 0) {
         }
     }
 }
+// ----------------- File Management -----------------
+void saveTeams(Team t[], int n) {
+    ofstream out("premier_league.txt");
+    if (out.fail()) { 
+        cerr << "Error: Could not open premier_league.txt for writing!\n"; 
+        return; 
+    }
+    for (int i = 0; i < n; i++) {
+        out << t[i].name << " "
+            << t[i].played << " "
+            << t[i].win << " "
+            << t[i].draw << " "
+            << t[i].loss << " "
+            << t[i].goalsFor << " "
+            << t[i].goalsAgainst << " "
+            << t[i].points << " "
+            << t[i].cleanSheets << " "
+            << t[i].homePlayed << " " << t[i].homeWin << " " << t[i].homeDraw << " " << t[i].homeLoss << " "
+            << t[i].awayPlayed << " " << t[i].awayWin << " " << t[i].awayDraw << " " << t[i].awayLoss
+            << endl;
+        if(out.fail()) { 
+            cerr << "Error: Failed while writing data!\n"; 
+            return; 
+        }
+    }
+    out.close();
+}
+
+void loadTeams(Team t[], int &n) {
+    ifstream in("premier_league.txt");
+    if(in.fail()) { cerr << "Error: Could not open premier_league.txt for reading!\n"; n=0; return; }
+
+    n = 0;
+    while(!in.eof() && in.good()) {
+        in >> t[n].name >> t[n].played >> t[n].win
+           >> t[n].draw >> t[n].loss
+           >> t[n].goalsFor >> t[n].goalsAgainst
+           >> t[n].points >> t[n].cleanSheets
+           >> t[n].homePlayed >> t[n].homeWin >> t[n].homeDraw >> t[n].homeLoss
+           >> t[n].awayPlayed >> t[n].awayWin >> t[n].awayDraw >> t[n].awayLoss;
+        if(in.good()) n++;
+    }
+
+    if(in.bad()) { cerr << "Error: Failed during reading premier_league.txt\n"; }
+    in.close();
+}
 int main(){
     return 0;
 }
