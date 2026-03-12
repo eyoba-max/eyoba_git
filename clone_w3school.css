@@ -3,12 +3,17 @@
     margin:0;
 }
 
-
+.nav-container {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background-color: aliceblue;
+}
 .left-nav li{
     display:flex;
     overflow:hidden;
     float:left;
-   position:static;
 }
 a img{
     width:40px;
@@ -26,7 +31,7 @@ a img{
     background-color:white;
 }
 .except:hover{
-    background-color:rgb(39, 135, 39);
+    background-color:#04AA6D;
     color:white;
 }
 /*right top nav styling*/
@@ -53,11 +58,36 @@ a img{
     cursor: pointer;
 }
 #in{
-    background-color:rgb(4, 111, 59);
-    padding:8px 12px;
+    background-color:#04AA6D;
+    padding:8px 15px;
     border-radius:12px;
     color:white;
 }
 #in:hover{
     opacity: 0.8;
+}
+
+.mid-nav{
+    margin-top: 50px;
+    background-color: #282A35;
+    display: grid;
+    
+    
+}
+.horizontal-nav{
+    display: flex;
+    flex-grow: 1;
+    float: left;
+    
+ 
+}
+.horizontal-nav .li{
+    float:left;
+    list-style-type: none;
+}
+.li a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding: 7px;
 }
