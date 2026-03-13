@@ -103,6 +103,32 @@ void loadTeams(Team t[], int &n) {
     if(in.bad()) { cerr << "Error: Failed during reading premier_league.txt\n"; }
     in.close();
 }
+//team registration function
+void registerPremierLeagueTeams(Team t[], int &n) {
+    string teamNames[20] = {
+        "Arsenal","AstonVilla","Brentford","Brighton",
+        "Chelsea","CrystalPalace","Everton","Fulham","LeedsUnited","Liverpool",
+        "Brentford","ManchesterCity","ManchesterUnited","NewcastleUnited",
+        "NottinghamForest","Bournemouth","Tottenham","WestHam",
+        "Wolverhampton","Burnley"
+    };
+    n = 20;
+    for (int i = 0; i < 20; i++) {
+        t[i].name = teamNames[i];
+        t[i].played = t[i].win = t[i].draw = t[i].loss = 0;
+        t[i].goalsFor = t[i].goalsAgainst = t[i].points = t[i].cleanSheets = 0;
+        t[i].homePlayed = t[i].homeWin = t[i].homeDraw = t[i].homeLoss = 0;
+        t[i].awayPlayed = t[i].awayWin = t[i].awayDraw = t[i].awayLoss = 0;
+    }
+    saveTeams(t, n);
+    cout << "All Premier League teams have been registered successfully!\n";
+}
+bool teamsAlreadyRegistered() {
+    ifstream in("premier_league.txt");
+    if(in.fail()) return false;
+    in.seekg(0, ios::end);
+    return in.tellg() > 0;
+}
 int main(){
     return 0;
 }
