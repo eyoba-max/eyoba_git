@@ -1,6 +1,8 @@
-*{
+body{
     padding:0;
     margin:0;
+    width:100vw;
+    height: 100vh;
 }
 
 .nav-container {
@@ -8,18 +10,24 @@
     top:0;
     left:0;
     right:0;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
+}
+.left-nav{
+    margin:0;
+    padding:0;
 }
 .left-nav li{
     display:flex;
     overflow:hidden;
     float:left;
 }
+
 a img{
+    
     width:40px;
     height:40px;
     padding:0;
-    margin:0;
+    margin-right:7px;
 }
 .except{
     text-decoration:none;
@@ -68,26 +76,40 @@ a img{
 }
 
 .mid-nav{
-    margin-top: 50px;
     background-color: #282A35;
-    display: grid;
-    
-    
+    display: flex;
+    align-items: center;
+    justify-content: start;
+   overflow-x: auto;
 }
 .horizontal-nav{
     display: flex;
-    flex-grow: 1;
-    float: left;
-    
- 
+    grid-auto-flow: column;
+    white-space:nowrap;
+    scroll-behavior: smooth;
+    cursor: pointer;
+    justify-content:start;
+    align-items: center;
+    margin:0;
 }
-.horizontal-nav .li{
-    float:left;
+ .li{
+   
     list-style-type: none;
+    padding-right:15px;
+    padding-left:0;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin:0;
+    
 }
 .li a{
     text-decoration: none;
     color: white;
     text-align: center;
-    padding: 7px;
+    padding:14px 20px;
+   
+
+}
+.li:hover{
+    background-color: black;
 }
