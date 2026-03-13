@@ -62,3 +62,62 @@ input:hover{
 .box{
     background-color: rgb(239, 0, 0);
 }
+.container{
+    height: 100vh;
+    display:grid;
+    grid-template-columns: minmax(100px,auto);
+    grid-template-rows:80px repeat(2,minmax(100px,auto));
+    grid-template-areas:"header header"
+                      "side-bar conten" 
+                      "footer footer";
+    gap:15px;
+    margin:0;
+}
+.boxx1{
+    grid-area:header;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    display: grid;
+}
+.left-nav {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    align-items: center;
+
+}
+li img{
+    height:40px;
+    width:40px;
+    margin:0;
+}
+.except a{
+    text-decoration: none;
+    color:black;
+    text-align: center;
+    padding:30px;
+}
+.except{
+    margin:0;
+}
+.except a:hover{
+    background-color: darkgreen;
+}
+.bb:hover{
+    background-color: aqua;
+}
+.boxx2{
+    grid-area:side-bar;
+    background-color: blueviolet;
+}
+.boxx3{
+    grid-area:conten;
+    background-color: chocolate;
+}
+.boxx4{
+    grid-area:footer;
+    background-color: darkcyan;
+}
