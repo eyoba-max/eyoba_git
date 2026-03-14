@@ -129,6 +129,42 @@ bool teamsAlreadyRegistered() {
     in.seekg(0, ios::end);
     return in.tellg() > 0;
 }
+// ----------------- Team Operations -----------------
+int getTeamIndex(Team t[], int &n, string prompt) {
+    string name;
+    int idx = -1;
+    while (idx == -1) {
+        cout << prompt;
+        getline(cin, name);
+        string normalizedInput = normalizeString(name);
+
+        for (int i = 0; i < n; i++) {
+            if (normalizeString(t[i].name) == normalizedInput) {
+                idx = i;
+                break;
+            }
+        }
+
+        if (idx == -1) {
+            cout << "Team not found. Register it? (1=Yes, 0=No): ";
+            int choice = getValidInt("", 0);
+            if (choice == 1) {
+                idx = n;
+                t[idx].name = name;
+                t[idx].played = t[idx].win = t[idx].draw = t[idx].loss = 0;
+                t[idx].goalsFor = t[idx].goalsAgainst = t[idx].points = t[idx].cleanSheets = 0;
+                t[idx].homePlayed = t[idx].homeWin = t[idx].homeDraw = t[idx].homeLoss = 0;
+                t[idx].awayPlayed = t[idx].awayWin = t[idx].awayDraw = t[idx].awayLoss = 0;
+                n++;
+                cout << "Team " << name << " registered successfully!\n";
+            } else {
+                cout << "Please enter a valid existing team.\n";
+            }
+        }
+    }
+    return idx;
+}
+
 int main(){
     return 0;
 }
