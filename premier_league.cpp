@@ -164,6 +164,35 @@ int getTeamIndex(Team t[], int &n, string prompt) {
     }
     return idx;
 }
+// ----------------- Game Week Management -----------------
+int getCurrentGameWeek() {
+    ifstream in("match_history.txt");
+    if(in.fail()) return 1;
+
+    int lines = 0;
+    string line;
+    while(getline(in, line)) {
+        if(line.find("GW") != string::npos) lines++;
+    }
+    in.close();
+
+    return (lines / 10) + 1;
+}
+
+bool alreadyPlayedThisGW(string teamA, string teamB, int gameWeek) {
+    ifstream in("match_history.txt");
+    if(in.fail()) return false;
+
+    string line;
+    while(getline(in, line)) {
+        if(line.find("GW" + to_string(gameWeek)) != string::npos) {
+            if(line.find(teamA) != string::npos || line.find(teamB) != string::npos)
+                return true;
+        }
+    }
+    in.close();
+    return false;
+}
 
 int main(){
     return 0;
