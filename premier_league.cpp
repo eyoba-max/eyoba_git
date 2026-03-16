@@ -193,7 +193,59 @@ bool alreadyPlayedThisGW(string teamA, string teamB, int gameWeek) {
     in.close();
     return false;
 }
+// ----------------- Fixtures -----------------
+void generateFixtures(Team t[], int n) {
+    vector<Fixture> fixtures;
+    vector<int> teamsIndex;
 
+    for(int i=0;i<n;i++) teamsIndex.push_back(i);
+
+    // First half season (round-robin using circle method)
+    for(int round=0; round<n-1; round++){
+        for(int i=0;i<n/2;i++){
+            int home = teamsIndex[i];
+            int away = teamsIndex[n-1-i];
+            if(home == away) continue; // Prevent self-match
+
+            Fixture f;
+            f.gameWeek = round+1;
+            f.homeTeam = t[home].name;
+            f.awayTeam = t[away].name;
+            f.homeGoals = f.awayGoals = 0;
+            f.played = false;
+            fixtures.push_back(f);
+        }
+        // Rotate except first element
+        int last = teamsIndex.back();
+        teamsIndex.pop_back();
+        teamsIndex.insert(teamsIndex.begin() + 1, last); // Corrected
+    }
+
+    // Second half season (reverse home/away)
+    int originalSize = fixtures.size();
+    for(int i=0;i<originalSize;i++){
+        Fixture f = fixtures[i];
+        f.gameWeek += n-1;
+        swap(f.homeTeam, f.awayTeam);
+        fixtures.push_back(f);
+    }
+
+    // Save fixtures to file
+    ofstream out("fixtures.txt");
+    if(out.fail()){ 
+        cerr<<"Error: Cannot save fixtures.\n"; 
+        return; 
+    }
+
+    for(auto &f: fixtures){
+        out << "GW" << f.gameWeek << " | " << f.homeTeam << " vs " << f.awayTeam
+            << " | " << f.homeGoals << "-" << f.awayGoals
+            << " | " << (f.played?"Played":"Not Played") << endl;
+    }
+    out.close();
+
+    cout << "Fixtures generated and saved successfully!\n";
+}
 int main(){
     return 0;
 }
