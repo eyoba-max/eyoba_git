@@ -340,3 +340,60 @@ h4 a:hover{
 code{
     font-size:15px;
 }
+.css{
+    display:grid;
+    background-color:#FFF4A3;
+    grid-template-columns:repeat(2,minmax(150px,auto));
+    justify-content:center;
+    column-gap: 90px;
+    vertical-align: middle;
+    font-family:"Source Sans Pro", sans-serif;
+    padding:32px 0px;
+}
+.css1 h1{
+    color:black;
+    font-size:100px;
+    font-weight:700;
+    margin-top: 90px !important;
+}
+.css1 p{
+    color:black;
+    font-size:19px;
+    font-weight:500;
+    margin-top:40px;
+}
+.css1 a{
+    text-decoration:none;
+    text-align:center;
+}
+.but{
+    border-radius:25px;
+    margin:0 60px;
+    font-weight:600;
+    line-height: 4em;
+    
+}
+.but:nth-child(3){
+    padding:12px 55px 12px;
+    color:white;
+    background-color: #04AA6D;
+}
+.but:nth-child(3):hover{
+    background-color:#059862;
+}
+.but:nth-child(5){
+    padding:12px 38px 12px;
+    color:rgb(255, 255, 255);
+    background-color: #282A35;
+}
+.but:nth-child(5):hover{
+   background-color: black;
+}
+.but:nth-child(7){
+    padding:12px 50px 12px;
+    color:black;
+    background-color: rgb(255, 192, 199);
+}
+.but:nth-child(7):hover{
+    background-color: #ffb3bb;
+}
