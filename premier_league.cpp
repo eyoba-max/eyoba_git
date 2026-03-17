@@ -246,6 +246,47 @@ void generateFixtures(Team t[], int n) {
 
     cout << "Fixtures generated and saved successfully!\n";
 }
+bool isScheduledMatch(string teamA, string teamB, int gameWeek) {
+    ifstream in("fixtures.txt");
+    if(in.fail()) return false;
+
+    string line;
+    string gwStr = "GW" + to_string(gameWeek);
+    while(getline(in,line)){
+        if(line.find(gwStr) != string::npos){
+            if(line.find(teamA) != string::npos && line.find(teamB) != string::npos)
+                return true;
+        }
+    }
+    in.close();
+    return false;
+}
+
+void updateFixtureAfterMatch(string teamA, string teamB, int goalA, int goalB, int gameWeek) {
+    ifstream in("fixtures.txt");
+    if(in.fail()){ cerr << "Error: Cannot read fixtures.txt\n"; return; }
+
+    vector<string> lines;
+    string line;
+    string gwStr = "GW" + to_string(gameWeek);
+
+    while(getline(in,line)){
+        if(line.find(gwStr) != string::npos &&
+           line.find(teamA) != string::npos &&
+           line.find(teamB) != string::npos) {
+            // Update goals and mark as played
+            size_t pos = line.find("|", line.find("|")+1);
+            line = line.substr(0,pos+2) + to_string(goalA) + "-" + to_string(goalB) + " | Played";
+        }
+        lines.push_back(line);
+    }
+    in.close();
+
+    ofstream out("fixtures.txt");
+    if(out.fail()){ cerr << "Error: Cannot write to fixtures.txt\n"; return; }
+    for(auto &l: lines) out << l << endl;
+    out.close();
+}
 int main(){
     return 0;
 }
