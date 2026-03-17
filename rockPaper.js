@@ -51,3 +51,19 @@ function playGame(playerMove){
     }
 alert(`you picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
 }
+
+const display=document.getElementById("display");
+function appendToDisplay(input){
+    display.value+=input;
+}
+function clearDisplay(){
+    display.value='';
+}
+function calculate(){
+    try{
+        display.value=eval(display.value);
+    }
+    catch{
+        display.value="error!!";
+    }
+}
