@@ -252,6 +252,7 @@ bool isScheduledMatch(string teamA, string teamB, int gameWeek) {
 
     string line;
     string gwStr = "GW" + to_string(gameWeek);
+    
     while(getline(in,line)){
         if(line.find(gwStr) != string::npos){
             if(line.find(teamA) != string::npos && line.find(teamB) != string::npos)
@@ -286,6 +287,46 @@ void updateFixtureAfterMatch(string teamA, string teamB, int goalA, int goalB, i
     if(out.fail()){ cerr << "Error: Cannot write to fixtures.txt\n"; return; }
     for(auto &l: lines) out << l << endl;
     out.close();
+}
+void viewFixturesByGW() {
+    ifstream in("fixtures.txt");
+    if (in.fail()) { 
+        cerr << "Error: Could not open fixtures.txt for reading!\n"; 
+        return; 
+    }
+
+    int gw;
+    cout << "Enter Game Week number: ";
+    cin >> gw;
+    cin.ignore();
+
+    string line;
+    bool found = false;
+    cout << "\n--- Fixtures for Game Week " << gw << " ---\n";
+
+    while (getline(in, line)) {
+        // Extract the GW number from the line
+        size_t gwPos = line.find("GW");
+        if (gwPos != string::npos) {
+            int lineGW = stoi(line.substr(gwPos + 2)); // +2 to skip "GW"
+            if (lineGW == gw) {
+                cout << line << endl;
+                found = true;
+            }
+        }
+    }
+
+    if (!found) {
+        cout << "No fixtures found for Game Week " << gw << ".\n";
+    }
+
+    in.close();
+}
+bool fixturesAlreadyGenerated() {
+    ifstream in("fixtures.txt");
+    if(in.fail()) return false;   // file doesn't exist
+    in.seekg(0, ios::end);
+    return in.tellg() > 0;        // file exists & not empty
 }
 int main(){
     return 0;
