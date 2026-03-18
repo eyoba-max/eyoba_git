@@ -55,3 +55,44 @@ body{
 #operator:active{
     background-color: hsl(39, 100%, 80%);
 }
+h1{
+    color:hs1(223,100%,64%);
+}
+form{
+    background-color: white;
+    text-align: center;
+    max-width:350px;
+    margin:auto;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:5px 5px 15px black;
+}
+#textBox{
+    width:50%;
+    text-align: center;
+    font-size:2em;
+    border:2px solid black;
+    border-radius:4px;
+    margin-bottom:15px;
+}
+label{
+    font-size:1.5em;
+    font-weight:bold;
+}
+#vs{
+    margin-top:15px;
+    background-color:crimson;
+    font-size:1.5em;
+    border:none;
+    padding:10px 15px;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+#vs:hover{
+    background-color: brown;
+}
+#result{
+    font-size:1.75em;
+    font-weight:bold;
+}
