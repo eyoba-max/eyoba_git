@@ -328,6 +328,67 @@ bool fixturesAlreadyGenerated() {
     in.seekg(0, ios::end);
     return in.tellg() > 0;        // file exists & not empty
 }
+// ----------------- Match & Standings -----------------
+void saveMatchHistory(string teamA, string teamB, int goalA, int goalB) {
+    ofstream out("match_history.txt", ios::app);
+    if(out.fail()) { 
+        cerr << "Error: Could not open match_history.txt for writing!\n"; 
+        return; 
+    }
+
+    int gameWeek = getCurrentGameWeek();
+    time_t now = time(0);
+    char* dt = ctime(&now);
+    dt[strlen(dt)-1] = '\0';
+
+    out << "GW" << gameWeek << " | " << dt << " | " << teamA << " " << goalA << " - " << goalB << " " << teamB << endl;
+
+    if(out.fail()) cerr << "Error: Failed while writing match history!\n";
+    out.close();
+}
+void saveStandingHistory(Team t[], int n, int gameWeek) {
+    ofstream out("standing_history.txt", ios::app);
+    if(out.fail()) { 
+        cerr << "Error: Could not open standing_history.txt\n"; 
+        return; 
+    }
+
+    time_t now = time(0);
+    char* dt = ctime(&now);
+    dt[strlen(dt)-1] = '\0';
+
+    out << "\n===== GAME WEEK " << gameWeek << " STANDINGS | " << dt << " =====\n";
+
+    out << left << setw(20) << "Team" << setw(6) << "P" << setw(6) << "W"
+        << setw(6) << "D" << setw(6) << "L"
+        << setw(6) << "GF" << setw(6) << "GA"
+        << setw(6) << "GD" << setw(6) << "Pts"
+        << setw(6) << "CS" << setw(10) << "Zone" << endl;
+
+    for(int i=0;i<n;i++){
+        string zone;
+        if(i < 4) zone = "CL";
+        else if(i < 6) zone = "EL";
+        else if(i == 6) zone = "C";
+        else if(i >= n-3) zone = "RL";
+        else zone = "-";
+
+        out << left << setw(20) << t[i].name
+            << setw(6) << t[i].played
+            << setw(6) << t[i].win
+            << setw(6) << t[i].draw
+            << setw(6) << t[i].loss
+            << setw(6) << t[i].goalsFor
+            << setw(6) << t[i].goalsAgainst
+            << setw(6) << t[i].goalsFor - t[i].goalsAgainst
+            << setw(6) << t[i].points
+            << setw(6) << t[i].cleanSheets
+            << setw(10) << zone << endl;
+    }
+
+    out.close();
+}
+
 int main(){
     return 0;
 }
