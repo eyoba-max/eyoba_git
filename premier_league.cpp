@@ -388,7 +388,65 @@ void saveStandingHistory(Team t[], int n, int gameWeek) {
 
     out.close();
 }
+void addMatchResult(Team t[], int &n) {
+    int a = getTeamIndex(t, n, "Enter Team A name: ");
+    int b = getTeamIndex(t, n, "Enter Team B name: ");
 
+    if(a == b) { 
+        cout << "A team cannot play against itself!\n"; 
+        return; 
+    }
+
+    int gameWeek = getCurrentGameWeek();
+    if(!isScheduledMatch(t[a].name,t[b].name,gameWeek)) {
+        cout << "Error: This match is not scheduled for this Game Week!\n";
+        return;
+    }
+    if(alreadyPlayedThisGW(t[a].name, t[b].name, gameWeek)) {
+        cout << "Error: One of the teams already played in this Game Week!\n";
+        return;
+    }
+
+    int goalA = getValidInt("Enter goals scored by Team A: ");
+    int goalB = getValidInt("Enter goals scored by Team B: ");
+
+    t[a].played++; t[b].played++;
+    t[a].goalsFor += goalA; t[a].goalsAgainst += goalB;
+    t[b].goalsFor += goalB; t[b].goalsAgainst += goalA;
+
+    if(goalB == 0) t[a].cleanSheets++;
+    if(goalA == 0) t[b].cleanSheets++;
+
+    // Home / Away stats
+    t[a].homePlayed++; t[b].awayPlayed++;
+    if(goalA > goalB){ 
+        t[a].win++; t[b].loss++; t[a].homeWin++; t[b].awayLoss++; 
+    }
+    else if(goalB > goalA){ 
+        t[b].win++; t[a].loss++; t[b].awayWin++; t[a].homeLoss++; 
+    }
+    else{ 
+        t[a].draw++; t[b].draw++; t[a].homeDraw++; t[b].awayDraw++; 
+    }
+
+    t[a].points = calculatePoints(t[a].win, t[a].draw);
+    t[b].points = calculatePoints(t[b].win, t[b].draw);
+
+    saveMatchHistory(t[a].name, t[b].name, goalA, goalB);
+    updateFixtureAfterMatch(t[a].name,t[b].name,goalA,goalB,gameWeek);
+
+    sort(t, t+n, [](Team x, Team y){
+        int gdX = x.goalsFor - x.goalsAgainst;
+        int gdY = y.goalsFor - y.goalsAgainst;
+        if(x.points != y.points) return x.points > y.points;
+        return gdX > gdY;
+    });
+
+    saveStandingHistory(t, n, gameWeek);
+
+    cout << "Match result updated and saved!\n";
+    cout << "Game Week " << gameWeek << " standings saved!\n";
+}
 int main(){
     return 0;
 }
