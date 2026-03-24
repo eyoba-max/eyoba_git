@@ -11,6 +11,10 @@
         <button onclick="playGame('rock');">rock</button>
         <button onclick="playGame('paper');">paper</button>
         <button onclick="playGame('scissor');">scissor</button>
+        <p class="parse">you picked nothing. Computer picked nothing.</p>
+        <p class="val">win: 0 lose: 0 tie: 0</p>
+        <button onclick="resetScore();">Reset</button>
+        
 
         <h2>CALCULATOR</h2>
         <div class="calculator">
@@ -38,13 +42,13 @@
 
          <form>
             <h1>Temprature Converter</h1>
-            <input type="number" id="textBox" value="0">
+            <input type="number" id="textBox" value="0"><br>
             <input type="radio" id="toFahrenheit" name="unit">
             <label for="toFahrenheit">Celsius to fahrenheit</label><br>
             <input type="radio"  id="toCelsius" name="unit">
-            <label for="toCelsius">fahrenheit to celsius</label><br>
+            <label for="toCelsius">Fahrenheit to celsius</label><br>
             <button id="vs"  type="button" onclick="convert()">submit</button>
-            <p id="result">Select a unit</p>
+            <p id="result"></p>
          </form>
         <script src="rockPaper.js"></script>
     </body>
