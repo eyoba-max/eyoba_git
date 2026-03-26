@@ -619,3 +619,67 @@ code{
 .sql{
     background-color: #96D4D4;
 }
+
+.div-container{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(600px,auto));
+    justify-content:center;
+    column-gap:90px;
+    row-gap:60px;
+    font-family:"Source Sans Pro", sans-serif;
+    background-color: #282A35;
+    padding:80px 0px;
+}
+.contain{
+    display:flex;
+    flex-direction:column;
+    /* gap:1rem; */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius:5px;
+    padding:30px;
+    text-align:center;
+}
+.titl{
+    font-size:2.5rem;
+    text-align:center;
+    color:black;
+    font-weight:700;
+}
+.cont{
+        color: #3a3a3a;
+        font-size:18px;
+        font-weight:400;
+        margin-top: 8px;
+        margin-bottom: 45px;
+}
+.linked{
+    background-color: #282A35;
+    color: white;
+    margin: auto;
+    display: block;
+    width: 150px;
+    border-radius: 25px;
+    text-decoration:none;
+    padding: 13px 16px;
+}
+.linked:hover{
+    background-color: black;
+}
+.php{
+    background-color: #FFC0C7;
+}
+.query{
+    background-color: #FFF4A3;
+}
+.java{
+    background-color: #F3ECEA;
+}
+.c{
+        background-color: #D9EEE1;
+}
+.w3{
+    background-color: #96D4D4;
+}
+.boot{
+        background-color: #E7E9EB;
+}
